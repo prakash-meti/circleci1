@@ -6,12 +6,12 @@ jobs:
       - image: python:3.10.12
     steps:
       - checkout
-      - run:
-          name: Update Debian package repositories
-          command: |
-            sudo sed -i '/stretch-updates/d' /etc/apt/sources.list
-            sudo sed -i '/stretch/d' /etc/apt/sources.list
-            sudo apt-get update
+      # - run:
+      #     name: Update Debian package repositories
+      #     command: |
+      #       sudo sed -i '/stretch-updates/d' /etc/apt/sources.list
+      #       sudo sed -i '/stretch/d' /etc/apt/sources.list
+      #       sudo apt-get update
       - run:
           name: Install dependencies
           command: |
