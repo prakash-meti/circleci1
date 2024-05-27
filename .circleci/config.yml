@@ -30,13 +30,13 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t my_app .
+            docker build -t app .
       - run:
           name: Push Docker image to DockerHub
           command: |
             docker login -u prakashpatildevinfo -p dckr_pat_9ZhCHHhjd9_AW3482Y9ezrpYVJY
-            docker tag my-app prakashpatildevinfo/my-app
-            docker push prakashpatildevinfo/my-app
+            docker tag app prakashpatildevinfo/app
+            docker push prakashpatildevinfo/app
 
 
 workflows:
