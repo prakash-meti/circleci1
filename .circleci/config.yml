@@ -27,14 +27,14 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t prakashpatildevinfo/app .  # Build image with correct tag
+            docker build -t prakashpatildevinfo/app .
+
       - run:
-          name: Push Docker image to DockerHub (optional)
+          name: Push Docker image to DockerHub
           command: |
-            if [ "$CIRCLE_BRANCH" == "master" ]; then  # Push only on master branch
-              docker login -u prakashpatildevinfo -p $dckr_pat_9ZhCHHhjd9_AW3482Y9ezrpYVJY
-              docker push prakashpatildevinfo/app:latest
-            fi
+            docker login -u prakashpatildevinfo -p dckr_pat_9ZhCHHhjd9_AW3482Y9ezrpYVJY
+            docker tag app prakashpatildevinfo/app
+            docker push prakashpatildevinfo/app
 
 workflows:
   build_and_test:
