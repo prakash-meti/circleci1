@@ -6,17 +6,6 @@ jobs:
       - image: python:3.9
     steps:
       - checkout
-      # - run:
-      #     name: Update Debian package repositories
-      #     command: |
-      #       sudo sed -i '/stretch-updates/d' /etc/apt/sources.list
-      #       sudo sed -i '/stretch/d' /etc/apt/sources.list
-      #       sudo apt-get update
-      - run:
-          name: Install dependencies
-          command: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
       - run:
           name: Linting with Flake8
           command: |
@@ -25,7 +14,6 @@ jobs:
           name: Run tests
           command: |
             python -m pytest tests/
-
       - setup_remote_docker
       - run:
           name: Build Docker image
@@ -37,7 +25,6 @@ jobs:
             docker login -u prakashpatildevinfo -p dckr_pat_9ZhCHHhjd9_AW3482Y9ezrpYVJY
             docker tag app prakashpatildevinfo/app
             docker push prakashpatildevinfo/app
-
 
 workflows:
   version: 2
