@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t prakashpatildevinfo/app .
+            docker build -t app .
 
       - run:
           name: Push Docker image to DockerHub
